@@ -1118,6 +1118,8 @@ body {
   font-size: 4vmin;
   z-index: 15;
   user-select: none;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
 
 .bee::before {
@@ -1129,19 +1131,29 @@ body {
 .bee--1 {
   left: -20vmin;
   bottom: 60vmin;
-  animation: bee-flight-1 8s linear infinite;
+  animation: bee-fade-in 0.5s 4s forwards, bee-flight-1 8s 4.5s linear infinite;
 }
 
 .bee--4 {
   left: -15vmin;
   bottom: 70vmin;
-  animation: bee-flight-4 9s linear infinite;
+  animation: bee-fade-in 0.5s 4.5s forwards, bee-flight-4 9s 5s linear infinite;
 }
 
 .bee--5 {
   left: 5vmin;
   bottom: 60vmin;
-  animation: bee-flight-5 11s linear infinite;
+  animation: bee-fade-in 0.5s 5s forwards, bee-flight-5 11s 5.5s linear infinite;
+}
+
+/* Bee fade-in animation */
+@keyframes bee-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Bee flight patterns with instant flipping */
